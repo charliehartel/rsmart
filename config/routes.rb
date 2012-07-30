@@ -1,4 +1,8 @@
 RunSmartProject::Application.routes.draw do
+  get "workouts/new"
+
+  resources :workouts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
