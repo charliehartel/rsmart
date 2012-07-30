@@ -3,6 +3,8 @@ RunSmartProject::Application.routes.draw do
   resources :workouts
   resources :athletes
 
+  match '/signup',  to: 'athletes#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
