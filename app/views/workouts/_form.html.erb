@@ -23,6 +23,11 @@
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
+
+  <div class="field">
+    <%= f.label :athlete%><br />
+    <%= f.collection_select(:athlete_id,@athletes,:id,:name) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
