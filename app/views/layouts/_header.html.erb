@@ -1,0 +1,34 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a id="logo" href="/">
+        <img src="/assets/logo.png"/>
+      </a>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Help",    '#' %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Schedule", root_path %></li>
+            <li><%= link_to "Athletes", athletes_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+
+                <li><%= link_to "Profile", current_athlete %></li>
+                <li><%= link_to "Settings", edit_athlete_path(current_athlete) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

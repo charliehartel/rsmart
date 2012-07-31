@@ -4,6 +4,8 @@ RunSmartProject::Application.routes.draw do
   resources :athletes
   resources :sessions, only: [:new, :create, :destroy]
 
+  root to: 'pages#schedule'
+
   match '/signup',  to: 'athletes#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#delete', via: :delete
