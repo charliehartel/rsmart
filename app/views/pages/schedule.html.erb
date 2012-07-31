@@ -1,0 +1,20 @@
+<% provide(:title, current_athlete.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+              <%= current_athlete.name %>
+              <%= current_athlete.email %>
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3>Stuff!</hr>
+    <% if current_athlete.workouts.any? %>
+      <h3>Workouts (<%= current_athlete.workouts.count %>)</h3>
+      <ol class="workouts">
+        <%= render current_athlete.workouts %>
+      </ol>
+    <% end %>
+  </div>
+</div>
