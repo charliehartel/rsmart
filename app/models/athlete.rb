@@ -3,6 +3,7 @@ class Athlete < ActiveRecord::Base
   has_secure_password
 
   before_save { |athlete| athlete.email = email.downcase }
+  before_save :create_remember_token
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: { case_sensitive: false },
@@ -14,4 +15,9 @@ class Athlete < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   has_many :workouts, dependent: :destroy
+
+  private
+  def create_remember_token
+  		self.remember_token = SecureRandom.urlsafe_base64
+  end
 end

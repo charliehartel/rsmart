@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<% if signed_in? %>
+<h1> Signed In </h1>
+<% else %>
+<h1> Signed Out </h1>
+<% end %>
 <p>
   <b>Name:</b>
   <%= @athlete.name %>
@@ -13,3 +17,4 @@
 
 <%= link_to 'Edit', edit_athlete_path(@athlete) %> |
 <%= link_to 'Back', workouts_path %>
+<%= link_to "Sign out", signout_path, method: "delete" %>

@@ -23,8 +23,12 @@ class AthletesController < ApplicationController
 
   def create
   	@athlete = Athlete.new(params[:athlete])
-  	@athlete.save
-  	redirect_to @athlete
+  	if @athlete.save
+      sign_in @athlete
+  	  redirect_to @athlete
+    else
+      render 'new'
+    end
   end
 
   def destroy

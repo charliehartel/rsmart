@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730211505) do
+ActiveRecord::Schema.define(:version => 20120731011602) do
 
   create_table "athletes", :force => true do |t|
     t.string   "name"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(:version => 20120730211505) do
     t.string   "password_digest"
     t.string   "password"
     t.string   "password_confirmation"
+    t.string   "remember_token"
   end
+
+  add_index "athletes", ["remember_token"], :name => "index_athletes_on_remember_token"
 
   create_table "workouts", :force => true do |t|
     t.string   "summary"
