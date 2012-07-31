@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731011602) do
+ActiveRecord::Schema.define(:version => 20120731192350) do
 
   create_table "athletes", :force => true do |t|
     t.string   "name"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(:version => 20120731011602) do
     t.string   "summary"
     t.string   "description"
     t.date     "date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "athlete_id"
+    t.integer  "miles",       :default => 0
   end
 
   add_index "workouts", ["athlete_id", "created_at"], :name => "index_workouts_on_athlete_id_and_created_at"

@@ -1,20 +1,24 @@
 <% provide(:title, current_athlete.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span8">
     <section>
       <h1>
               <%= current_athlete.name %>
+      </h1>
+      <h1>
               <%= current_athlete.email %>
       </h1>
     </section>
   </aside>
-  <div class="span8">
-    <h3>Stuff!</hr>
-    <% if current_athlete.workouts.any? %>
-      <h3>Workouts (<%= current_athlete.workouts.count %>)</h3>
-      <ol class="workouts">
-        <%= render current_athlete.workouts %>
-      </ol>
-    <% end %>
+  <div class="span4">
+    <div style="border: 4px solid #EEE;padding: 5px ">
+      <% if current_athlete.workouts.any? %>
+        <p><span style="font-size: 14px;font-weight: bold;line-height: 1.5;margin-bottom: 0;">Week Summary</span></p>
+        <hr>
+        <p><span style="text-transform: uppercase;color: #909090;">Workouts: </span><%= current_athlete.workouts.count %></p>
+      <% else %>
+        <p>No workouts scheduled this week<p>
+      <% end %>
+    </div>
   </div>
 </div>

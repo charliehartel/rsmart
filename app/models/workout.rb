@@ -11,13 +11,16 @@
 #
 
 class Workout < ActiveRecord::Base
-  attr_accessible :date, :description, :summary, :athlete_id
+  attr_accessible :date, :description, :summary, :athlete_id, :miles
   belongs_to :athlete
   
   validates :description, presence: true, length: {maximum: 20}
   validates :summary, presence: true, length: {maximum: 200}
   validates :date, presence: true
   validates :athlete_id, presence: true
+  validates :miles, presence: true,
+  					numericality: { greater_than_or_equal_to: 0,
+  									only_integer: true} 
 
   default_scope order: 'workouts.created_at DESC'
 end
