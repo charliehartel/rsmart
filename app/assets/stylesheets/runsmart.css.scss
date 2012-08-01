@@ -1,0 +1,64 @@
+/* ************ Typography ***************** */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	font-family: Tahoma,Verdana,Arial,san-serif;
+	font-size: 10pt;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;
+	color:#790C0A;
+	/*text-transform: uppercase; */
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	font-family: 'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+#home-primary {
+	width: 860px;
+	background-color: #f2f2f2;
+	border: 1px solid #999999;
+	padding: 6px;
+}
+
+.home-primary-photo {
+	height: 260px;
+}
+
+.home-primary-photo h2 {
+	font-size: 22pt;
+	position: absolute;
+	left: -9999px;
+}
+.home-primary-text h3 {
+	color: #333333;
+	font-size: 20px;
+	padding: 0 8px;
+	margin: 6px 0 6px 0;
+	line-height: 24px;
+}
+
+.home-primary-text p {
+	font-size: 14px;
+	padding: 0 8px;
+	margin: 0;
+}
+
+#home-primary a {
+	font-size: 14px;
+}
+
+#home-primary span {
+	float: right;
+	margin: 0 16px;
+}
+
+#home-left, #home-right {
+	width: 430px;
+	float: left;
+}
