@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   	  redirect_to schedule_path
   	end
   end
+
   def schedule
   	@totalMiles = 0
   	current_athlete.workouts.select do | w |
@@ -13,12 +14,9 @@ class PagesController < ApplicationController
   	@fromDate = Date.today - Date.today.wday + 1
   	@toDate = @fromDate + 6
 
-  	@workouts = [ 	current_athlete.workouts.find_by_date(@fromDate),
-  				  	current_athlete.workouts.find_by_date(@fromDate + 1),
-  				  	current_athlete.workouts.find_by_date(@fromDate + 2),
-  				  	current_athlete.workouts.find_by_date(@fromDate + 3),
-  				  	current_athlete.workouts.find_by_date(@fromDate + 4),
-  					current_athlete.workouts.find_by_date(@fromDate + 5),
-  					current_athlete.workouts.find_by_date(@fromDate + 6)]
+  	@workouts = current_athlete.current_schedule
+    if @current_workout.nil? 
+      @current_workout = current_athlete.workouts.find_by_date(Date.today)
   	end
+  end 
 end

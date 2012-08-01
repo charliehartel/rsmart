@@ -16,6 +16,20 @@ class Athlete < ActiveRecord::Base
 
   has_many :workouts, dependent: :destroy
 
+  def current_schedule
+    schedule = []
+    for i in 1...8
+      day = Date.today - Date.today.wday + i
+      workout = self.workouts.find_by_date(day)
+      if (!workout.nil?)
+        schedule << workout
+      else
+        schedule << Workout.new(summary: "No Workout", description:"", miles:0, date: day)
+      end
+    end
+    return schedule
+  end
+
   private
   def create_remember_token
   		self.remember_token = SecureRandom.urlsafe_base64

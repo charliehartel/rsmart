@@ -2,14 +2,26 @@
 <div class="row">
   <aside class="span8">
     <section>
-      <div style="border: 4px solid #EEE;padding: 5px">
-        <span style="font-weight:bold;font-family:'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;font-size: 18px;font-weight: bold;line-height: 1.5;margin-bottom: 0;color:#790C0A;"><%= @fromDate.to_formatted_s(:long) %> to <%= @toDate.to_formatted_s(:long) %></span>
-        <hr>
-        <p>
-          Charlie, no change in mileage this week. I want you to get adjusted to this mileage before hitting the 50+ mark. If all goes well you’ll be holding it for 2 weeks before moving up again. Have a great week and keep me posted.
-        </p>
-        <hr>
-
+      <div class="row">
+        <div class="span8">
+          <span id="header" style="font-size:24px">Schedule for <%= @fromDate.to_formatted_s(:long) %> to <%= @toDate.to_formatted_s(:long) %></span>
+          <hr>
+          <p>
+            Charlie, no change in mileage this week. I want you to get adjusted to this mileage before hitting the 50+ mark. If all goes well you’ll be holding it for 2 weeks before moving up again. Have a great week and keep me posted.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="span5">
+          <p><span id="header"><%= @current_workout.date.to_formatted_s(:long) %></span></p>
+          <p><h3><%= @current_workout.summary%></h3></p>
+          <p><span id="label">Miles: </span><%= @current_workout.miles %></p>
+          <p><span id="label">Description:</span></p>
+          <p><%= @current_workout.description%></p>
+        </div>
+        <div class="span3">
+        </div>
       </div>
     </section>
   </aside>
@@ -24,7 +36,7 @@
         <p>No workouts scheduled this week<p>
       <% end %>
     </div>
-    <hr class="space"/>
+    <br>
     <div style="border: 4px solid #EEE;padding: 5px"><span id="header">Current Goal</span></span>
       <hr>
       <p><span id="label">Race: </span> New York City Marathon</p>
@@ -45,6 +57,7 @@
     </div>
   </div>
 </div>
+<br>
 <div class="row">
   <div class="span12">
     <table style="border: 4px solid #EEE;">
@@ -60,13 +73,10 @@
       <tbody>
         <tr>
           <% @workouts.each do |workout| %> 
-          <td style="border: 1px solid;height: 150px;margin: 2px;padding: 2px;">
-            <% if !workout.nil? %>
-            <h5><%=workout.summary %> </h5>
-            <%=workout.description %> 
-            <% else %>
-            <h5>No Workout </h5>
-            <% end %>
+          <td class="workout" onmouseover="$(this).toggleClass('workout-hover')" onmouseout="$(this).toggleClass('workout-hover')" onclick="$(this).siblings().each(function() { $(this).removeClass('workout-selected') } );$(this).addClass('workout-selected');">
+            <p><span style="color: #333;font-size: 12px;font-weight:bold"><%=workout.summary %></span></p>
+            <p><span id="label">Miles: </span><%=workout.miles %></p>
+            <p><%=workout.description%></p>
           </td>
           <% end %>
         </tr>
