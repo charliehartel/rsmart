@@ -4,11 +4,12 @@ RunSmartProject::Application.routes.draw do
   resources :athletes
   resources :sessions, only: [:new, :create, :destroy]
 
-  root to: 'pages#schedule'
+  root to: 'pages#home'
 
-  match '/signup',  to: 'athletes#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#delete', via: :delete
+  match '/signup',    to: 'athletes#new'
+  match '/signin',    to: 'sessions#new'
+  match '/signout',   to: 'sessions#delete', via: :delete
+  match '/schedule',  to: 'pages#schedule'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

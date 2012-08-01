@@ -56,6 +56,10 @@ p {
   line-height: 1.7em;
 }
 
+hr {
+  margin: 5px;
+}
+
 /* header */
 
 
@@ -180,4 +184,23 @@ input, textarea, select, .uneditable-input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+#label {
+  text-transform: uppercase;
+  color: #909090;
+}
+
+#value {
+
+}
+
+#header {
+  font-weight:bold;
+  font-family:'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0;
+  color:#790C0A;
 }

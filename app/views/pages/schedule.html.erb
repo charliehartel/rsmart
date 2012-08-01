@@ -2,23 +2,75 @@
 <div class="row">
   <aside class="span8">
     <section>
-      <h1>
-              <%= current_athlete.name %>
-      </h1>
-      <h1>
-              <%= current_athlete.email %>
-      </h1>
+      <div style="border: 4px solid #EEE;padding: 5px">
+        <span style="font-weight:bold;font-family:'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;font-size: 18px;font-weight: bold;line-height: 1.5;margin-bottom: 0;color:#790C0A;"><%= @fromDate.to_formatted_s(:long) %> to <%= @toDate.to_formatted_s(:long) %></span>
+        <hr>
+        <p>
+          Charlie, no change in mileage this week. I want you to get adjusted to this mileage before hitting the 50+ mark. If all goes well you’ll be holding it for 2 weeks before moving up again. Have a great week and keep me posted.
+        </p>
+        <hr>
+
+      </div>
     </section>
   </aside>
   <div class="span4">
     <div style="border: 4px solid #EEE;padding: 5px ">
       <% if current_athlete.workouts.any? %>
-        <p><span style="font-size: 14px;font-weight: bold;line-height: 1.5;margin-bottom: 0;">Week Summary</span></p>
+        <span id="header">Week Summary</span>
         <hr>
         <p><span style="text-transform: uppercase;color: #909090;">Workouts: </span><%= current_athlete.workouts.count %></p>
+        <p><span style="text-transform: uppercase;color: #909090;">Miles: </span><%= @totalMiles %></p>
       <% else %>
         <p>No workouts scheduled this week<p>
       <% end %>
     </div>
+    <hr class="space"/>
+    <div style="border: 4px solid #EEE;padding: 5px"><span id="header">Current Goal</span></span>
+      <hr>
+      <p><span id="label">Race: </span> New York City Marathon</p>
+      <p><span id="label">Distance: </span> 26.2 Miles</p>
+      <p><span id="label">Date: </span> November 04, 2012</p>
+      <p><span id="label">Goal: </span> 03:00:00</p>
+      <p><span id="label">Countdown: </span> 13 Weeks</p>
+      <!--
+      <% if current_athlete.workouts.any? %>
+        <span style="font-weight:bold;font-family:'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;font-size: 18px;font-weight: bold;line-height: 1.5;margin-bottom: 0;color:#790C0A;">Week Summary</span>
+        <hr>
+        <p><span style="text-transform: uppercase;color: #909090;">Workouts: </span><%= current_athlete.workouts.count %></p>
+        <p><span style="text-transform: uppercase;color: #909090;">Miles: </span><%= @totalMiles %></p>
+      <% else %>
+        <p>No workouts scheduled this week<p>
+      <% end %>
+      -->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <table style="border: 4px solid #EEE;">
+      <thead style="background-color:#790C0A;color:white;">
+        <th style="width: 134px">Monday</th>
+        <th style="width: 134px">Tuesday</th>
+        <th style="width: 134px">Wednesday</th>
+        <th style="width: 134px">Thursday</th>
+        <th style="width: 134px">Friday</th>
+        <th style="width: 134px">Saturday</th>
+        <th style="width: 134px">Sunday</th>
+      </thead>
+      <tbody>
+        <tr>
+          <% @workouts.each do |workout| %> 
+          <td style="border: 1px solid;height: 150px;margin: 2px;padding: 2px;">
+            <% if !workout.nil? %>
+            <h5><%=workout.summary %> </h5>
+            <%=workout.description %> 
+            <% else %>
+            <h5>No Workout </h5>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
