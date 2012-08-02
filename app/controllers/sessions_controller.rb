@@ -10,12 +10,11 @@ class SessionsController < ApplicationController
 	  	sign_in athlete
 	  	redirect_to schedule_path
 	  else
-
+	  	redirect_to signin_path
 	  end
 	end
 
 	def delete
 		sign_out
 	end
-
 end

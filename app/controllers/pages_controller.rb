@@ -16,7 +16,8 @@ class PagesController < ApplicationController
 
   	@workouts = current_athlete.current_schedule
     if @current_workout.nil? 
-      @current_workout = current_athlete.workouts.find_by_date(Date.today)
+      change_workout Date.today
   	end
-  end 
+  end
+
 end

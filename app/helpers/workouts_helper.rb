@@ -1,6 +1,6 @@
 module WorkoutsHelper
 	def test_schedule
-	athlete = Athlete.find_by_email("gladys.murphy@gmail.com")
+	athlete = Athlete.find_by_email("gladysmurphy@gmail.com")
 	schedule = 
 	[ { athlete_id: athlete.id, summary: "Easy Run", description: "6 mi at 11:25 - 12:06 pace", miles: 6, date: (Date.today - Date.today.wday + 1) },
 	  { athlete_id: athlete.id, summary: "Off Day", description: "Off Day, no running", miles: 0, date: (Date.today - Date.today.wday + 2 ) },

@@ -1,6 +1,8 @@
+
 <div class="row">
 	<div>
-		<h1 class="tagline tk-league-gothic">Personalized training for runners of all levels.</h1>
+		<h1 class="tagline tk-league-gothic">Personalized training for runners of all levels. </h1>
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary", style: "margin-left:auto;margin-right:auto;display:block;width:90px;margin-bottom:10px"%>
 	</div>
 	<div id="home-primary" class="span12">
 		<div id="home-left">
@@ -30,10 +32,7 @@
 		</div>
 	</div>
 </div>
-<hr>
-<div class="row">
-</div>
-<hr>
+<br>
 <div class="row">
 	<aside class="span4">
 		<a href="/coaching/retreat">
@@ -49,7 +48,7 @@
 		<h3><a href="/coaching/nutrition">Nutrition Plans</a></h3>
 		<p>Maximize athletic potential, reduce injuries, shorten recovery and improve performance.</p>
 	</aside>
-	<div class="span4">
+	<div class="span4" id="newsletter-signup">
 		<form action="http://runsmartproject.createsend.com/t/r/s/mcujr/" method="post" id="subForm">
 		<h3>Sign Up for Newsletter</h3>
 		<label for="mcujr-mcujr">Email:</label>
@@ -74,5 +73,6 @@
 		</ul>
 	</div>
 </div>
+
 
 

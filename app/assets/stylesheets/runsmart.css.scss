@@ -62,3 +62,18 @@ h1 {
 	width: 430px;
 	float: left;
 }
+
+div#page {
+	width: 100%;
+	background-image:url("images/bg-body.png");
+	background-repeat: repeat-y;
+	background-position: center top;
+	background-color: #F1F1F2;
+}
+
+div#newsletter-signup {
+border: solid 1px silver;
+height: 80px;
+padding: 10px;
+width: 212px;
+}

@@ -14,11 +14,15 @@
       <hr>
       <div class="row">
         <div class="span5">
-          <p><span id="header"><%= @current_workout.date.to_formatted_s(:long) %></span></p>
-          <p><h3><%= @current_workout.summary%></h3></p>
-          <p><span id="label">Miles: </span><%= @current_workout.miles %></p>
-          <p><span id="label">Description:</span></p>
-          <p><%= @current_workout.description%></p>
+          <% if current_athlete.workouts.any? %>
+            <p><h1><%= @current_workout.date.to_formatted_s(:long) %></h1></p>
+            <p><span id="header"><%= @current_workout.summary%></span></p>
+            <p><span id="label">Miles: </span><%= @current_workout.miles %></p>
+            <p><span id="label">Description:</span></p>
+            <p><%= @current_workout.description%></p>
+          <% else %>
+            <h1>No schedule this week</h1>
+          <% end %>
         </div>
         <div class="span3">
         </div>
@@ -73,7 +77,12 @@
       <tbody>
         <tr>
           <% @workouts.each do |workout| %> 
-          <td class="workout" onmouseover="$(this).toggleClass('workout-hover')" onmouseout="$(this).toggleClass('workout-hover')" onclick="$(this).siblings().each(function() { $(this).removeClass('workout-selected') } );$(this).addClass('workout-selected');">
+          <!--td class="workout" onmouseover="$(this).toggleClass('workout-hover')" onmouseout="$(this).toggleClass('workout-hover')" onclick="$(this).siblings().each(function() { $(this).removeClass('workout-selected') } ); $(this).addClass('workout-selected');">
+            <p><span style="color: #333;font-size: 12px;font-weight:bold"><%=workout.summary %></span></p>
+            <p><span id="label">Miles: </span><%=workout.miles %></p>
+            <p><%=workout.description%></p>
+          </td-->
+          <td class="workout">
             <p><span style="color: #333;font-size: 12px;font-weight:bold"><%=workout.summary %></span></p>
             <p><span id="label">Miles: </span><%=workout.miles %></p>
             <p><%=workout.description%></p>
