@@ -1,0 +1,13 @@
+<% if current_athlete.workouts.any? %>
+  <% if !@current_workout.nil? %>
+    <p><h1><%= @current_workout.date.to_formatted_s(:long) %></h1></p>
+    <p><span id="header"><%= @current_workout.summary%></span></p>
+    <p><span id="label">Miles: </span><%= @current_workout.miles %></p>
+    <p><span id="label">Description:</span></p>
+    <p><%= @current_workout.description%></p>
+  <% else %>
+    <h1>No workout Today!</h1>
+  <% end %>
+<% else %>
+  <h1>No schedule this week</h1>
+<% end %>

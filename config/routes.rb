@@ -3,7 +3,8 @@ RunSmartProject::Application.routes.draw do
   resources :workouts
   resources :athletes
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :goals
+  
   root to: 'pages#home'
 
   match '/signup',    to: 'athletes#new'

@@ -15,7 +15,8 @@ class Athlete < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   has_many :workouts, dependent: :destroy
-
+  has_one :goal, dependent: :destroy
+  
   def current_schedule
     schedule = []
     for i in 1...8

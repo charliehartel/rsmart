@@ -19,8 +19,7 @@ class Workout < ActiveRecord::Base
   validates :date, presence: true
   validates :athlete_id, presence: true
   validates :miles, presence: true,
-  					numericality: { greater_than_or_equal_to: 0,
-  									only_integer: true} 
+  					numericality: { greater_than_or_equal_to: 0 } 
 
   default_scope order: 'workouts.date ASC'
 end
