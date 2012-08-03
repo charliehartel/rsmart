@@ -189,6 +189,8 @@ input, textarea, select, .uneditable-input {
 #label {
   text-transform: uppercase;
   color: #909090;
+  display:inline;
+  width:auto;
 }
 
 #value {
@@ -209,11 +211,3 @@ input, textarea, select, .uneditable-input {
   background-color: blue;
 }
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  padding: 10px;
-  height: auto;
-  margin-bottom: 15px;
-  @include box_sizing;
-}

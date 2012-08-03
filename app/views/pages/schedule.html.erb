@@ -15,16 +15,23 @@
       <div class="row">
         <div class="span5">
           <% if current_athlete.workouts.any? %>
-            <p><h1><%= @current_workout.date.to_formatted_s(:long) %></h1></p>
-            <p><span id="header"><%= @current_workout.summary%></span></p>
-            <p><span id="label">Miles: </span><%= @current_workout.miles %></p>
-            <p><span id="label">Description:</span></p>
-            <p><%= @current_workout.description%></p>
+            <% if !@current_workout.nil? %>
+              <p><h1><%= @current_workout.date.to_formatted_s(:long) %></h1></p>
+              <p><span id="header"><%= @current_workout.summary%></span></p>
+              <p><span id="label">Miles: </span><%= @current_workout.miles %></p>
+              <p><span id="label">Description:</span></p>
+              <p><%= @current_workout.description%></p>
+            <% else %>
+              <h1>No workout Today!</h1>
+            <% end %>
           <% else %>
             <h1>No schedule this week</h1>
           <% end %>
         </div>
         <div class="span3">
+          <h1>Workout Results</h1>
+          <a class="btn btn-success"><i class="icon-chevron-up"></i> Easy</a>
+          <a class="btn btn-danger"><i class="icon-chevron-down"></i> Tough</a>
         </div>
       </div>
     </section>
@@ -32,32 +39,14 @@
   <div class="span4">
     <div style="border: 4px solid #EEE;padding: 5px ">
       <% if current_athlete.workouts.any? %>
-        <span id="header">Week Summary</span>
-        <hr>
-        <p><span style="text-transform: uppercase;color: #909090;">Workouts: </span><%= current_athlete.workouts.count %></p>
-        <p><span style="text-transform: uppercase;color: #909090;">Miles: </span><%= @totalMiles %></p>
+        <%= render 'week_summary' %>
       <% else %>
         <p>No workouts scheduled this week<p>
       <% end %>
     </div>
     <br>
-    <div style="border: 4px solid #EEE;padding: 5px"><span id="header">Current Goal</span></span>
-      <hr>
-      <p><span id="label">Race: </span> New York City Marathon</p>
-      <p><span id="label">Distance: </span> 26.2 Miles</p>
-      <p><span id="label">Date: </span> November 04, 2012</p>
-      <p><span id="label">Goal: </span> 03:00:00</p>
-      <p><span id="label">Countdown: </span> 13 Weeks</p>
-      <!--
-      <% if current_athlete.workouts.any? %>
-        <span style="font-weight:bold;font-family:'TradeGothicW01-BoldCn20 675334', Calibri, Tahoma,Verdana,Arial,san-serif;font-size: 18px;font-weight: bold;line-height: 1.5;margin-bottom: 0;color:#790C0A;">Week Summary</span>
-        <hr>
-        <p><span style="text-transform: uppercase;color: #909090;">Workouts: </span><%= current_athlete.workouts.count %></p>
-        <p><span style="text-transform: uppercase;color: #909090;">Miles: </span><%= @totalMiles %></p>
-      <% else %>
-        <p>No workouts scheduled this week<p>
-      <% end %>
-      -->
+    <div style="border: 4px solid #EEE;padding: 5px">
+      <%= render 'goal' %>
     </div>
   </div>
 </div>
