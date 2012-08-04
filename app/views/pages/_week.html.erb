@@ -11,11 +11,18 @@
   <tbody>
     <tr>
       <% @workouts.each do |workout| %> 
-      <td class="workout">
-        <p><span style="color: #333;font-size: 12px;font-weight:bold"><%=workout.summary %></span></p>
-        <p><span id="label">Miles: </span><%=workout.miles %></p>
-        <p><%=workout.description%></p>
-      </td>
+        <% if !workout.nil? %>
+          <td class="workout">
+            <p><span style="color: #333;font-size: 12px;font-weight:bold"><%=workout.summary %></span></p>
+            <p><span id="label">Miles: </span><%=workout.miles %></p>
+            <p><%=workout.description%></p>
+          </td>
+        <% else %>
+          <td class="no-workout">
+            <span style="color: #333;font-size: 12px;font-weight:bold">No Workout</span>
+            <a href="workouts/new" class="btn"><i class="icon-plus"></i></a>
+          </td>
+        <% end %>
       <% end %>
     </tr>
   </tbody>

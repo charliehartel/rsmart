@@ -16,17 +16,13 @@ class Athlete < ActiveRecord::Base
 
   has_many :workouts, dependent: :destroy
   has_one :goal, dependent: :destroy
-  
+
   def current_schedule
     schedule = []
     for i in 1...8
       day = Date.today - Date.today.wday + i
       workout = self.workouts.find_by_date(day)
-      if (!workout.nil?)
-        schedule << workout
-      else
-        schedule << Workout.new(summary: "No Workout", description:"", miles:0, date: day)
-      end
+      schedule << workout
     end
     return schedule
   end
